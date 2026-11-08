@@ -1324,6 +1324,35 @@ SG.cravings=[
  ["sauer","Saures",["Du willst etwas Frisches, Klärendes.","Manchmal sucht der Körper nach Unterstützung für die Verdauung.","Du willst etwas aufwecken in dir."],"Zitronenwasser, Sauerkraut oder Essiggurken, passend zu deiner Blutgruppe."],
  ["alkohol","Ein Glas Wein oder Bier",["Vielleicht willst du abschalten und runterkommen.","Der Tag war zu voll, und das Glas markiert endlich den Feierabend.","Geselligkeit und Dazugehören."],"Ein eigenes Feierabend Ritual ohne Alkohol, Dusche, Spaziergang, Tee auf dem Balkon. Und wenn Wein, dann bewusst und genossen."]
 ];
+
+// Entzündung einfach erklärt, Zucker, stille Stressmacher
+SG.entzInfo={
+ was:"Entzündung ist eigentlich etwas Gutes. Dein Körper repariert damit Verletzungen und wehrt Keime ab. Problematisch wird es, wenn sie nie ganz aufhört. Dann läuft im Körper ständig ein kleines Feuer, das du nicht spürst, das dich aber müde macht, Gewicht festhält, Gelenke, Haut und Verdauung belastet.",
+ feuer:"Zucker und Weißmehl, Fertigprodukte, frittiertes Essen, viel Alkohol, Wurst, Dauerstress, zu wenig Schlaf und laut D’Adamo auch die Lebensmittel, die deine Blutgruppe meiden soll.",
+ loeschen:"Omega 3 aus Fisch, Leinsamen und Walnüssen, buntes Gemüse, vor allem grünes und Kohl, Beeren, Olivenöl, Ingwer und Kurkuma, grüner Tee, Ballaststoffe für den Darm, Schlaf, Bewegung an der frischen Luft und Momente, in denen du wirklich runterkommst.",
+ zucker:"Zucker gibt dir in Minuten einen Schub und nimmt ihn dir genauso schnell wieder. Danach sackt der Blutzucker ab, du wirst müde, gereizt und hungrig, und der Körper legt Fett an. Dauerhaft hält Zucker das stille Feuer am Brennen. Das heißt nicht nie wieder Kuchen. Zucker ist ein Werkzeug für den Moment, zum Beispiel vor einer kurzen Anstrengung oder als bewusster Genuss, nicht als Treibstoff über den ganzen Tag."
+};
+SG.stressBase=[
+ ["Essen im Stehen, Gehen oder Autofahren","Dein Körper schaltet auf Alarm statt auf Verdauen."],
+ ["Handy, Nachrichten oder Mails beim Essen","Dein Kopf ist woanders, und du merkst nicht, wann du satt bist."],
+ ["Kaffee auf nüchternen Magen","Er treibt Cortisol nach oben, bevor dein Körper überhaupt etwas zu essen bekommen hat."],
+ ["Den ganzen Tag ein bisschen naschen","Der Blutzucker kommt nie zur Ruhe, und dein Körper bleibt im Speichermodus."],
+ ["Zu wenig trinken","Schon leichter Durst fühlt sich an wie Müdigkeit, Kopfweh oder Hunger."],
+ ["Bildschirm bis zum Einschlafen","Das Licht bremst dein Schlafhormon, und der Körper kann nachts nicht aufräumen."],
+ ["Strenge Diätregeln, die nicht zu dir passen","Jedes Verbot ist Druck, und Druck macht Heißhunger."],
+ ["Alkohol als Feierabend","Er entspannt kurz, stört aber den Schlaf und hält Entzündungen am Laufen."]
+];
+SG.stressCenter={
+ Wurzel:["Alles schnell erledigen wollen, auch das Essen","Deine offene Wurzel spürt fremden Druck doppelt. Der Druck gehört oft gar nicht dir."],
+ Solarplexus:["Essen, wenn andere gestresst oder schlecht drauf sind","Dein offener Solarplexus nimmt die Stimmung am Tisch mit in den Bauch."],
+ Herz:["Sich etwas beweisen wollen, auch beim Abnehmen","Dein offenes Herzzentrum hat keinen Dauerwillen. Ehrgeiz kostet dich mehr Kraft als andere."],
+ Milz:["An Gewohnheiten festhalten, die dir nicht guttun","Deine offene Milz hält am Vertrauten fest, auch wenn es dir schadet."],
+ Sakral:["Mit anderen mithalten, beim Sport oder bei der Arbeit","Dein offenes Sakralzentrum hat keine Dauerenergie. Wenn du weitermachst, obwohl du müde bist, holst du dir die Kraft oft über Zucker."],
+ Kopf:["Grübeln über das richtige Essen","Dein offener Kopf nimmt Fragen von außen auf, die dich gar nicht betreffen."],
+ Ajna:["Ständig recherchieren, was jetzt gesund ist","Dein offenes Ajna will Sicherheit. Dein Körper weiß es oft besser als jede Liste."],
+ G:["Am falschen Ort essen","Dein offenes G Zentrum reagiert stark auf Räume. Ein Platz, an dem du dich wohlfühlst, ist halbe Verdauung."]
+};
+SG.notSelf={"Generator":"Frust","Manifestierender Generator":"Frust und Wut","Projektor":"Bitterkeit","Manifestor":"Wut","Reflektor":"Enttäuschung"};
 </script>
 <script>const CITIES=[["Wien","Europe/Vienna"],["Tulln an der Donau","Europe/Vienna"],["St. Pölten","Europe/Vienna"],["Krems","Europe/Vienna"],["Klosterneuburg","Europe/Vienna"],["Hollabrunn","Europe/Vienna"],["Mistelbach","Europe/Vienna"],["Korneuburg","Europe/Vienna"],["Stockerau","Europe/Vienna"],["Wiener Neustadt","Europe/Vienna"],["Baden","Europe/Vienna"],["Mödling","Europe/Vienna"],["Amstetten","Europe/Vienna"],["Melk","Europe/Vienna"],["Zwettl","Europe/Vienna"],["Horn","Europe/Vienna"],["Gänserndorf","Europe/Vienna"],["Neunkirchen","Europe/Vienna"],["Linz","Europe/Vienna"],["Wels","Europe/Vienna"],["Steyr","Europe/Vienna"],["Salzburg","Europe/Vienna"],["Graz","Europe/Vienna"],["Leoben","Europe/Vienna"],["Klagenfurt","Europe/Vienna"],["Villach","Europe/Vienna"],["Innsbruck","Europe/Vienna"],["Bregenz","Europe/Vienna"],["Dornbirn","Europe/Vienna"],["Feldkirch","Europe/Vienna"],["Eisenstadt","Europe/Vienna"],["Oberwart","Europe/Vienna"],["Berlin","Europe/Berlin"],["München","Europe/Berlin"],["Hamburg","Europe/Berlin"],["Köln","Europe/Berlin"],["Frankfurt am Main","Europe/Berlin"],["Stuttgart","Europe/Berlin"],["Düsseldorf","Europe/Berlin"],["Leipzig","Europe/Berlin"],["Dresden","Europe/Berlin"],["Nürnberg","Europe/Berlin"],["Passau","Europe/Berlin"],["Regensburg","Europe/Berlin"],["Rosenheim","Europe/Berlin"],["Hannover","Europe/Berlin"],["Bremen","Europe/Berlin"],["Rostock","Europe/Berlin"],["Erfurt","Europe/Berlin"],["Ost-Berlin (DDR)","Europe/Berlin"],["Zürich","Europe/Zurich"],["Bern","Europe/Zurich"],["Basel","Europe/Zurich"],["Luzern","Europe/Zurich"],["St. Gallen","Europe/Zurich"],["Vaduz","Europe/Vaduz"],["Bozen","Europe/Rome"],["Meran","Europe/Rome"],["Rom","Europe/Rome"],["Mailand","Europe/Rome"],["Budapest","Europe/Budapest"],["Prag","Europe/Prague"],["Brünn","Europe/Prague"],["Bratislava","Europe/Bratislava"],["Ljubljana","Europe/Ljubljana"],["Zagreb","Europe/Zagreb"],["Belgrad","Europe/Belgrade"],["Sarajevo","Europe/Sarajevo"],["Warschau","Europe/Warsaw"],["Bukarest","Europe/Bucharest"],["Sofia","Europe/Sofia"],["Istanbul","Europe/Istanbul"],["Athen","Europe/Athens"],["Paris","Europe/Paris"],["London","Europe/London"],["Amsterdam","Europe/Amsterdam"],["Brüssel","Europe/Brussels"],["Madrid","Europe/Madrid"],["Lissabon","Europe/Lisbon"],["Stockholm","Europe/Stockholm"],["Moskau","Europe/Moscow"],["Kiew","Europe/Kyiv"],["New York","America/New_York"],["Los Angeles","America/Los_Angeles"],["Toronto","America/Toronto"],["Sydney","Australia/Sydney"]];
 const MONTHS=["Jänner","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
@@ -1572,6 +1601,7 @@ function renderBody(){
     +(t.atem?'<button class="soft small" onclick="breathe()">Atemübung starten</button>':'')
     +(t.med?'<div class="box rosa">Bitte nur begleitend und in Absprache mit deiner Ärztin. Medikamente nie selbst absetzen, wenn sich durch die Ernährung etwas verändert, darf sie mit dir gemeinsam anpassen.</div>':'')+'</div>').join('');
   h+='<div class="card"><span class="tag g">Blutgruppe '+S.profile.blood+'</span><h2>Entzündungshemmend für dich</h2><p>'+B.entz+'</p><details><summary>Tauschen statt verbieten</summary>'+B.tausch.map(r=>'<div class="food"><div>'+r[0]+'<div class="alt">stattdessen '+r[1]+'</div></div></div>').join('')+'</details></div>';
+  h+=entzCard()+stressCard();
   h+='<div class="card"><h2>'+SG.omega.titel+'</h2><p>'+SG.omega.text+'</p><p><b>Fisch</b> '+SG.omega.fisch+'</p><p><b>Aus Pflanzen</b> '+SG.omega.pflanze+'</p><p><b>Sonst noch</b> '+SG.omega.sonst+'</p></div>';
   h+='<div class="card"><h2>Lust auf, was steckt dahinter?</h2><p class="hint">Denkansätze, keine Diagnose.</p>'+SG.cravings.map(c=>'<details style="border-bottom:1px solid var(--linie)"><summary>'+c[1]+'</summary><ul>'+c[2].map(t=>'<li>'+t+'</li>').join('')+'</ul><p><b>Was guttun könnte</b> '+c[3]+'</p></details>').join('')+'</div>';
   h+=hormonesAll();
@@ -1767,6 +1797,7 @@ function renderGoalToday(){
   const n=stageN(),st=stageSteps(n),ck=stageChecks();const done=ck.filter(Boolean).length;
   $('goalToday').innerHTML='<div class="card"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px"><div><span class="tag g">Etappe '+n+' von 4 · '+SG.stages[n-1][0]+'</span><div style="font-weight:700">'+G.map(g=>g.icon+' '+g.name).join('<br>')+'</div></div><button class="soft small" onclick="go(\'weg\')">Mein Weg</button></div>'
    +'<h3 style="margin-top:12px">Deine drei Schritte diese Woche</h3><div id="tChecks">'+st.map((s,i)=>'<div class="check'+(ck[i]?' on':'')+'" data-c="'+i+'"><i>'+(ck[i]?'✓':'')+'</i><span>'+s+'</span></div>').join('')+'</div>'
+   +'<p class="hint" style="margin-top:8px"><b>Diese Woche darf weg</b> '+stressList()[(dayNo()>>3)%Math.min(4,stressList().length)][0]+'</p>'
    +(done===3?'<div class="box sonne">Alle drei geschafft. Wenn es sich leicht anfühlt, geh unter Mein Weg zur nächsten Etappe.</div>':'')+'</div>';
   $('tChecks').onclick=e=>{const x=e.target.closest('.check');if(!x)return;const c=stageChecks();c[+x.dataset.c]=!c[+x.dataset.c];save();renderGoalToday();};
   applyStage();
@@ -1813,6 +1844,7 @@ function renderZiel(){
      +step('🍴','Wie du isst',det.name+' '+DT[0]+'. '+DT[1].split('. ')[0]+'.')
      +step('⚡','Der rote Faden im Körper',(C.hormones[0]?C.hormones.filter(x=>x.c>1||!multi).slice(0,3).map(x=>x.n).join(', ')+(multi&&C.hormones.some(x=>x.c>1)?' spielen bei mehreren deiner Ziele mit.':' spielen hier die Hauptrolle.'):'')+' Wenn du hier ansetzt, hilfst du allen Zielen gleichzeitig.'+C.hormones.slice(0,3).map(x=>hormoneCard(x.n)).join(''))
      +(aMiss.length?step('🧬','Bausteine nachlegen',aMiss.slice(0,3).map(a=>{const f=aminoFoods(a);return a+(f.length?', zum Beispiel '+f.slice(0,3).join(', '):'');}).join('. ')+'.'):'')
+     +step('✋','Weglassen, was stresst',stressList().slice(0,3).map(x=>x[0]).join(', ')+'. Mehr dazu unter Wissen.')
      +step('🚶','Bewegung',C.bew.join('. ')+'.')
      +step('💭','Im Kopf',SG.centerGoal[C.cen[0]][CH.defined.includes(C.cen[0])?0:1]+' <div style="margin-top:6px">'+mot.kippText+'</div><div style="margin-top:6px"><b>Deine Frage</b> '+G[0].kopf[dayNo()%G[0].kopf.length]+'</div><div class="hint">Entscheide mit deiner '+AU.titel.replace(', die Umgebung','')+'.</div>')
      +'</div>';
@@ -1863,33 +1895,47 @@ function renderPortion(){
 // Einkaufsratgeber
 const SECMAP={"Gemüse":"Obst und Gemüse","Obst":"Obst und Gemüse","Fleisch":"Fleisch und Fisch","Fisch":"Fleisch und Fisch","Milch und Eier":"Milch und Eier","Getreide":"Getreide und Beilagen","Hülsenfrüchte":"Getreide und Beilagen","Nüsse und Samen":"Nüsse und Samen","Fette":"Öl und Fett","Getränke":"Tee und Gewürze","Gewürze":"Tee und Gewürze"};
 const SECORD=["Obst und Gemüse","Fleisch und Fisch","Milch und Eier","Getreide und Beilagen","Nüsse und Samen","Öl und Fett","Tee und Gewürze","Sonstiges"];
+
+// Für wen wird eingekauft
+function household(){if(!S.house||!S.house.length)S.house=[{name:S.profile.name||'Ich',blood:S.profile.blood,me:true}];S.house[0].blood=S.profile.blood;return S.house;}
+function houseHtml(){const H=household();
+  return '<div class="card"><h2>Für wen kaufst du ein?</h2><div class="chips">'+H.map((p,i)=>'<span class="chip on">'+esc(p.name)+' · '+p.blood+(p.me?'':' <button class="soft small" data-hrm="'+i+'" style="padding:0 7px;margin-left:4px" aria-label="Entfernen">×</button>')+'</span>').join('')+'</div>'
+   +'<div class="row3" style="margin-top:10px"><input id="hName" placeholder="Name"><select id="hBlood"><option>0</option><option>A</option><option>B</option><option>AB</option><option value="?">weiß nicht</option></select><button class="soft" id="hAdd">Dazu</button></div>'
+   +'<p class="hint">Die Liste passt sich an alle an. Was jemand meiden soll, wird markiert.</p></div>';}
 function buildShop(){
   const b=bi(),G=focusList(),C=G.length?combine(G):{foods:[]};
   const names=[];const push=n=>{if(!names.includes(n))names.push(n);};
   C.foods.slice(0,16).forEach(f=>push(f.n));
   S.favs.forEach(f=>{if(f.i!=null&&'gn'.includes(codeOf(f.i))&&SG.foods[f.i][1]!=='Süßes')push(SG.foods[f.i][0]);});
   Object.keys(SECMAP).forEach(cat=>SG.foods.filter(f=>f[1]===cat&&f[2][b]==='g').slice(0,cat==='Gemüse'?3:1).forEach(f=>push(f[0])));
-  const items=[];names.forEach(n=>{const i=SG.foods.findIndex(f=>f[0]===n);if(i<0)return;if(SG.foods[i][2][b]==='m')return;
+  const H=household(),bloods=H.filter(p=>p.blood!=='?');
+  bloods.slice(1).forEach(p=>{const pb=SG.bloodIdx[p.blood];Object.keys(SECMAP).forEach(cat=>SG.foods.filter(f=>f[1]===cat&&f[2][pb]==='g').slice(0,cat==='Gemüse'||cat==='Fleisch'?2:1).forEach(f=>push(f[0])));});
+  const items=[];names.forEach(n=>{const i=SG.foods.findIndex(f=>f[0]===n);if(i<0)return;
+    const avoid=bloods.filter(p=>SG.foods[i][2][SG.bloodIdx[p.blood]]==='m');
+    if(avoid.length===bloods.length)return;
     let label=n;if(isBudget()&&SG.cheap[n])label=SG.cheap[n];
-    if(!items.some(x=>x.n===label))items.push({n:label,sec:SECMAP[SG.foods[i][1]]||'Sonstiges',on:false,e:ENTZ.has(n)});});
+    if(!items.some(x=>x.n===label))items.push({n:label,sec:SECMAP[SG.foods[i][1]]||'Sonstiges',on:false,e:ENTZ.has(n),not:avoid.map(p=>p.name)});});
+  items.sort((a,b)=>(a.not||[]).length-(b.not||[]).length);
   S.shopList={items,made:todayStr()};save();
 }
 function renderShop(){
   if(!S.shopList||!S.shopList.items.length)buildShop();
   const L=S.shopList.items;const open=L.filter(x=>!x.on).length;
-  let h='<div class="card"><h2>Deine Einkaufsliste</h2><p class="hint">Zusammengestellt aus deinem Ziel, deiner Blutgruppe '+S.profile.blood+(isBudget()?', der schmalen Börse':'')+' und deinen Lieblingsessen. Abhaken im Geschäft, fertig.</p>'
-   +SECORD.filter(s=>L.some(x=>x.sec===s)).map(s=>'<h3>'+s+'</h3>'+L.map((x,i)=>[x,i]).filter(([x])=>x.sec===s).map(([x,i])=>'<div class="shop'+(x.on?' on':'')+'" data-i="'+i+'"><i>'+(x.on?'✓':'')+'</i><span>'+esc(x.n)+(x.e?' 🌿':'')+'</span></div>').join('')).join('')
+  const HH=household();let h=houseHtml()+'<div class="card"><h2>Deine Einkaufsliste</h2><p class="hint">'+(HH.length>1?'Für '+HH.length+' Personen, zusammengestellt aus deinem Ziel, den Blutgruppen '+HH.map(p=>p.blood).join(', '):'Zusammengestellt aus deinem Ziel, deiner Blutgruppe '+S.profile.blood)+(isBudget()?', der schmalen Börse':'')+' und deinen Lieblingsessen. Abhaken im Geschäft, fertig.</p>'
+   +SECORD.filter(s=>L.some(x=>x.sec===s)).map(s=>'<h3>'+s+'</h3>'+L.map((x,i)=>[x,i]).filter(([x])=>x.sec===s).map(([x,i])=>'<div class="shop'+(x.on?' on':'')+'" data-i="'+i+'"><i>'+(x.on?'✓':'')+'</i><span>'+esc(x.n)+(x.e?' 🌿':'')+(x.not&&x.not.length?' <small style="opacity:.7">nicht für '+x.not.map(esc).join(', ')+'</small>':'')+'</span></div>').join('')).join('')
    +'<div class="row" style="margin-top:12px"><input id="shopAdd" placeholder="Noch etwas dazu"><button class="soft" id="shopAddBtn">Dazu</button></div>'
    +'<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><button class="small" id="shopCopy">Liste kopieren</button><button class="soft small" id="shopNew">Neu zusammenstellen</button>'+(L.some(x=>x.on)?'<button class="soft small" id="shopClear">Erledigtes weg</button>':'')+'</div>'
    +'<p class="hint">'+open+' noch offen. 🌿 wirkt entzündungshemmend. Mit Liste kopieren kannst du sie per WhatsApp schicken.</p>'
    +(focusList().some(g=>g.gut.some(n=>['Lachs','Makrele'].includes(n)))&&!isBudget()?'<p class="hint">Tipp, Sardinen und Makrele aus der Dose sind die günstige Alternative zu frischem Seefisch.</p>':'')+'</div>';
   $('shopOut').innerHTML=h;
+  $('hAdd').onclick=()=>{const n=$('hName').value.trim();if(!n)return toast('Name fehlt');household().push({name:n,blood:$('hBlood').value});buildShop();save();renderShop();toast(n+' ist dabei');};
+  $('shopOut').querySelectorAll('[data-hrm]').forEach(b=>b.onclick=()=>{S.house.splice(+b.dataset.hrm,1);buildShop();save();renderShop();});
   $('shopOut').querySelectorAll('.shop').forEach(el=>el.onclick=()=>{const x=L[+el.dataset.i];x.on=!x.on;save();renderShop();});
   const add=()=>{const v=$('shopAdd').value.trim();if(!v)return;const h=findFoods(v);const sec=h.length?(SECMAP[SG.foods[h[0]][1]]||'Sonstiges'):'Sonstiges';L.push({n:v,sec,on:false});save();renderShop();};
   $('shopAddBtn').onclick=add;$('shopAdd').onkeydown=e=>{if(e.key==='Enter')add();};
   $('shopNew').onclick=()=>{buildShop();renderShop();toast('Neu zusammengestellt');};
   const cl=$('shopClear');if(cl)cl.onclick=()=>{S.shopList.items=L.filter(x=>!x.on);save();renderShop();};
-  $('shopCopy').onclick=async()=>{const t='Einkauf\n'+SECORD.filter(s=>L.some(x=>x.sec===s&&!x.on)).map(s=>'\n'+s+'\n'+L.filter(x=>x.sec===s&&!x.on).map(x=>'· '+x.n).join('\n')).join('\n');
+  $('shopCopy').onclick=async()=>{const t='Einkauf\n'+SECORD.filter(s=>L.some(x=>x.sec===s&&!x.on)).map(s=>'\n'+s+'\n'+L.filter(x=>x.sec===s&&!x.on).map(x=>'· '+x.n+(x.not&&x.not.length?' (nicht für '+x.not.join(', ')+')':'')).join('\n')).join('\n');
     try{await navigator.clipboard.writeText(t);toast('Liste kopiert');}catch(e){$('shopAdd').value='';ask('Liste zum Kopieren','<textarea style="min-height:200px">'+esc(t)+'</textarea>','Fertig',()=>{});}};
 }
 // Nebenbei Fragen, damit der Start kurz bleibt
@@ -1911,6 +1957,25 @@ function renderNudge(){
   const sk=$('nSkip');if(sk)sk.onclick=()=>{if(L)p.skipLife=true;else if(!S.favs.length&&!p.skipFav)p.skipFav=true;else p.skipThemes=true;save();renderNudge();};
   const th=$('nThemes');if(th)th.onclick=()=>{$('gear').click();const d=$('s-more');if(d)d.open=true;};
 }
+
+
+// Stille Stressmacher, persönlich
+function stressList(){
+  const out=[];
+  ['Wurzel','Solarplexus','Herz','Sakral','Milz','G','Kopf','Ajna'].forEach(c=>{if(!CH.defined.includes(c)&&SG.stressCenter[c])out.push(SG.stressCenter[c]);});
+  const det=NK.determination[CH.determination.color],other=det[CH.determination.side==='L'?'R':'L'];
+  out.unshift(['Gegen deinen Essensstil essen','Du verdaust am besten nach '+det.name+', '+det[CH.determination.side][0]+'. Wenn du das Gegenteil machst, also '+other[0]+', ist das für deine Verdauung Stress, auch wenn du es nicht merkst.']);
+  return out.slice(0,4).concat(SG.stressBase);
+}
+function stressCard(){
+  const L=stressList();const ns=SG.notSelf[CH.type];
+  return '<div class="card"><h2>Stille Stressmacher</h2><p>Manches stresst den Körper, ohne dass wir es merken. Aus energetischer Sicht darfst du das nach und nach weglassen. Oben steht, was laut deinem Design für dich besonders zählt.</p>'
+   +L.map((x,i)=>'<details style="border-bottom:1px solid var(--linie)"'+(i<2?' open':'')+'><summary>'+x[0]+'</summary><p>'+x[1]+'</p></details>').join('')
+   +'<div class="box sonne">Dein Warnsignal als '+CH.type+' ist '+ns+'. Wenn es auftaucht, frag dich, was du gerade gegen dich lebst, beim Essen, bei der Arbeit oder mit Menschen.</div></div>';
+}
+function entzCard(){const E=SG.entzInfo,B=NK.blood[S.profile.blood];
+  return '<div class="card"><h2>Was heißt entzündungshemmend?</h2><p>'+E.was+'</p><h3>Was das Feuer anheizt</h3><p>'+E.feuer+'</p><h3>Was es löscht</h3><p>'+E.loeschen+'</p><p class="hint">Für Blutgruppe '+S.profile.blood+' besonders, '+B.entz+'.</p><h3>Und Zucker?</h3><p>'+E.zucker+'</p>'
+   +(!CH.defined.includes('Sakral')?'<div class="box rosa">Dein Sakralzentrum ist offen, du hast keine Dauerenergie. Genau dann greift man gern zu Süßem, um weiterzumachen. Oft ist eine Pause der bessere Schub.</div>':'<div class="box rosa">Dein Sakralzentrum ist definiert. Wenn du trotzdem dauernd Zucker brauchst, machst du vermutlich etwas, das dich nicht wirklich begeistert. Dann fehlt nicht Zucker, sondern Freude an der Sache.</div>')+'</div>';}
 
 function start(){
   const p=S.profile;const [hh,mi]=p.time.split(':').map(Number);
