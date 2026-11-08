@@ -1388,6 +1388,13 @@ SG.entzTips=[
  ["pausen","⏱","Pausen zwischen den Mahlzeiten","Wer ständig nebenbei isst, gibt dem Körper keine Zeit zum Aufräumen. Drei Mahlzeiten mit vier bis fünf Stunden Pause dazwischen beruhigen Blutzucker und Entzündung."],
  ["kurkuma","🟠","Kurkuma richtig kombinieren","Kurkuma wirkt entzündungshemmend, der Körper nimmt es aber schlecht auf. Mit schwarzem Pfeffer und etwas Fett wird es deutlich besser verwertet, zum Beispiel in Suppe, Curry oder goldener Milch."]
 ];
+
+// Sicherheit im Körper
+SG.safe={titel:"Sicherheit im Körper",
+ text:["Manchmal hält der Körper fest, obwohl du alles richtig machst. Oft steckt dahinter, dass er sich nicht sicher fühlt. Dauerstress, alte Verletzungen oder das Gefühl, dich ständig schützen zu müssen, halten das Stresshormon Cortisol oben. Und Cortisol sagt dem Körper, speichern, vor allem am Bauch.",
+ "Das heißt nicht, dass du schuld bist. Es heißt, dass dein Körper dich schützen will. Wenn er spürt, dass er sicher ist, darf er auch loslassen. Das geht nicht mit Druck, sondern mit Ruhe, Freundlichkeit und Gefühlen, die endlich da sein dürfen."],
+ fragen:["Wovor schützt mich mein Körper vielleicht?","Wo und mit wem fühle ich mich wirklich sicher?","Welches Gefühl halte ich schon lange fest?","Was würde ich loslassen, wenn ich mich ganz sicher fühlen würde?"],
+ uebung:["Setz dich hin, beide Füße am Boden. Spür, wie der Boden dich trägt.","Leg eine Hand aufs Herz und eine auf den Bauch.","Atme vier Sekunden ein und sechs Sekunden aus, eine Minute lang.","Sag dir innerlich, ich bin sicher, hier und jetzt.","Wenn ein Gefühl kommt, lass es da sein. Es darf sich bewegen."]};
 </script>
 <script>const CITIES=[["Wien","Europe/Vienna"],["Tulln an der Donau","Europe/Vienna"],["St. Pölten","Europe/Vienna"],["Krems","Europe/Vienna"],["Klosterneuburg","Europe/Vienna"],["Hollabrunn","Europe/Vienna"],["Mistelbach","Europe/Vienna"],["Korneuburg","Europe/Vienna"],["Stockerau","Europe/Vienna"],["Wiener Neustadt","Europe/Vienna"],["Baden","Europe/Vienna"],["Mödling","Europe/Vienna"],["Amstetten","Europe/Vienna"],["Melk","Europe/Vienna"],["Zwettl","Europe/Vienna"],["Horn","Europe/Vienna"],["Gänserndorf","Europe/Vienna"],["Neunkirchen","Europe/Vienna"],["Linz","Europe/Vienna"],["Wels","Europe/Vienna"],["Steyr","Europe/Vienna"],["Salzburg","Europe/Vienna"],["Graz","Europe/Vienna"],["Leoben","Europe/Vienna"],["Klagenfurt","Europe/Vienna"],["Villach","Europe/Vienna"],["Innsbruck","Europe/Vienna"],["Bregenz","Europe/Vienna"],["Dornbirn","Europe/Vienna"],["Feldkirch","Europe/Vienna"],["Eisenstadt","Europe/Vienna"],["Oberwart","Europe/Vienna"],["Berlin","Europe/Berlin"],["München","Europe/Berlin"],["Hamburg","Europe/Berlin"],["Köln","Europe/Berlin"],["Frankfurt am Main","Europe/Berlin"],["Stuttgart","Europe/Berlin"],["Düsseldorf","Europe/Berlin"],["Leipzig","Europe/Berlin"],["Dresden","Europe/Berlin"],["Nürnberg","Europe/Berlin"],["Passau","Europe/Berlin"],["Regensburg","Europe/Berlin"],["Rosenheim","Europe/Berlin"],["Hannover","Europe/Berlin"],["Bremen","Europe/Berlin"],["Rostock","Europe/Berlin"],["Erfurt","Europe/Berlin"],["Ost-Berlin (DDR)","Europe/Berlin"],["Zürich","Europe/Zurich"],["Bern","Europe/Zurich"],["Basel","Europe/Zurich"],["Luzern","Europe/Zurich"],["St. Gallen","Europe/Zurich"],["Vaduz","Europe/Vaduz"],["Bozen","Europe/Rome"],["Meran","Europe/Rome"],["Rom","Europe/Rome"],["Mailand","Europe/Rome"],["Budapest","Europe/Budapest"],["Prag","Europe/Prague"],["Brünn","Europe/Prague"],["Bratislava","Europe/Bratislava"],["Ljubljana","Europe/Ljubljana"],["Zagreb","Europe/Zagreb"],["Belgrad","Europe/Belgrade"],["Sarajevo","Europe/Sarajevo"],["Warschau","Europe/Warsaw"],["Bukarest","Europe/Bucharest"],["Sofia","Europe/Sofia"],["Istanbul","Europe/Istanbul"],["Athen","Europe/Athens"],["Paris","Europe/Paris"],["London","Europe/London"],["Amsterdam","Europe/Amsterdam"],["Brüssel","Europe/Brussels"],["Madrid","Europe/Madrid"],["Lissabon","Europe/Lisbon"],["Stockholm","Europe/Stockholm"],["Moskau","Europe/Moscow"],["Kiew","Europe/Kyiv"],["New York","America/New_York"],["Los Angeles","America/Los_Angeles"],["Toronto","America/Toronto"],["Sydney","Australia/Sydney"]];
 const MONTHS=["Jänner","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
@@ -1636,7 +1643,7 @@ function renderBody(){
     +(t.atem?'<button class="soft small" onclick="breathe()">Atemübung starten</button>':'')
     +(t.med?'<div class="box rosa">Bitte nur begleitend und in Absprache mit deiner Ärztin. Medikamente nie selbst absetzen, wenn sich durch die Ernährung etwas verändert, darf sie mit dir gemeinsam anpassen.</div>':'')+'</div>').join('');
   h+='<div class="card"><span class="tag g">Blutgruppe '+S.profile.blood+'</span><h2>Entzündungshemmend für dich</h2><p>'+B.entz+'</p><details><summary>Tauschen statt verbieten</summary>'+B.tausch.map(r=>'<div class="food"><div>'+r[0]+'<div class="alt">stattdessen '+r[1]+'</div></div></div>').join('')+'</details></div>';
-  h+=entzCard()+entzTipsCard()+stressCard();
+  h+=entzCard()+entzTipsCard()+stressCard()+safeCard(false);
   h+='<div class="card"><h2>'+SG.omega.titel+'</h2><p>'+SG.omega.text+'</p><p><b>Fisch</b> '+SG.omega.fisch+'</p><p><b>Aus Pflanzen</b> '+SG.omega.pflanze+'</p><p><b>Sonst noch</b> '+SG.omega.sonst+'</p></div>';
   h+='<div class="card"><h2>Lust auf, was steckt dahinter?</h2><p class="hint">Denkansätze, keine Diagnose.</p>'+SG.cravings.map(c=>'<details style="border-bottom:1px solid var(--linie)"><summary>'+c[1]+'</summary><ul>'+c[2].map(t=>'<li>'+t+'</li>').join('')+'</ul><p><b>Was guttun könnte</b> '+c[3]+'</p></details>').join('')+'</div>';
   h+=hormonesAll();
@@ -1822,7 +1829,7 @@ function currentLever(){const L=leverList(),st=leverState();return L.find(l=>!st
 function leverSteps(l){
   if(!l)return [];
   if(l.id==='stil'){const det=NK.determination[CH.determination.color],DT=det[CH.determination.side],env=NK.environment[CH.environment.color];return ['Iss diese Woche nach deinem Essensstil, '+det.name+' '+DT[0],'Such dir zum Essen einen Ort, der zu dir passt, '+env[0],'Merk dir nach dem Essen kurz, ob du dich leicht oder schwer fühlst'];}
-  if(l.id==='kopf'){const mot=SG.motivation[CH.P['Sonne'].color];return ['Vor jedem Naschen der kurze Check, Hunger oder Kopf','Jeden Abend drei Dinge, mit denen du heute gut für dich gesorgt hast','Beantworte einmal ehrlich die Frage, '+mot.fragen[0]];}
+  if(l.id==='kopf'){const mot=SG.motivation[CH.P['Sonne'].color];return ['Vor jedem Naschen der kurze Check, Hunger oder Kopf','Jeden Tag eine Minute Sicherheit im Körper, Hand auf Herz und Bauch','Beantworte einmal ehrlich die Frage, '+mot.fragen[0]];}
   if(l.id==='schlaf'){const det=NK.determination[6];const s=l.steps.slice();if(CH.determination.color===6)s[2]=CH.determination.side==='L'?'Früh und leicht zu Abend essen, du bist Tagesesser':'Hauptmahlzeit am Abend ist für dich in Ordnung, aber zwei Stunden vor dem Schlafen fertig';else s[2]='Abendessen zwei bis drei Stunden vor dem Schlafen';return s;}
   if(l.id==='bewegung'){const s=l.steps.slice();if(CH.type==='Projektor'||CH.type==='Reflektor')s[1]='Zwei Mal pro Woche kurz und gezielt Kraft, zwanzig bis dreißig Minuten reichen';return s;}
   return l.steps;
@@ -1840,6 +1847,7 @@ function renderGoalToday(){
    +'<h3 style="margin-top:12px">Deine drei Schritte diese Woche</h3><div id="tChecks">'+st.map((s,i)=>'<div class="check'+(ck[i]?' on':'')+'" data-c="'+i+'"><i>'+(ck[i]?'✓':'')+'</i><span>'+s+'</span></div>').join('')+'</div>'
    +'<p class="hint" style="margin-top:8px"><b>Diese Woche darf weg</b> '+stressList()[(dayNo()>>3)%Math.min(4,stressList().length)][0]+'</p>'
    +(done===3?'<div class="box sonne">Alle drei geschafft. Wenn es sich leicht anfühlt, geh unter Mein Weg zur nächsten Stellschraube.</div>':'')+'</div>';
+  if(['kopf','stress'].includes(l.id)&&focusList().some(g=>['abnehmen','figur','frieden'].includes(g.id)))$('goalToday').insertAdjacentHTML('beforeend',safeCard(false));
   $('tChecks').onclick=e=>{const x=e.target.closest('.check');if(!x)return;const c=stageChecks();c[+x.dataset.c]=!c[+x.dataset.c];save();renderGoalToday();};
   applyStage();
 }
@@ -1895,6 +1903,7 @@ function renderZiel(){
     const tips=lifeTips();
     if(tips.length)h+='<div class="card"><h2>Neben Arbeit, Kindern und Hobby</h2><ul>'+tips.map(l=>l[2].slice(0,2).map(t=>'<li>'+t+'</li>').join('')).join('')+'</ul></div>';
     if(G.some(g=>g.id==='entz'))h+=entzTipsCard();
+    if(G.some(g=>['abnehmen','figur','frieden'].includes(g.id)))h+=safeCard(false);
     h+='<div class="card"><h2>Mehr zu einzelnen Zielen</h2>'+G.map(g=>'<details><summary>'+g.icon+' '+g.name+'</summary><p>'+g.was+'</p><p><b>Bewegung</b> '+g.bew+'</p></details>').join('')+'</div>';
   }
   $('zielOut').innerHTML=h;
@@ -2039,6 +2048,15 @@ function entzTipsCard(){
   return '<div class="card"><h2>10 Tipps gegen stille Entzündungen</h2><p class="hint">Fang mit einem an, der dir leicht fällt.</p>'
    +SG.entzTips.map(t=>'<details style="border-bottom:1px solid var(--linie)"><summary>'+t[1]+' '+t[2]+'</summary><p>'+t[3]+'</p>'+(notes[t[0]]?'<div class="box rosa">'+notes[t[0]]+'</div>':'')+'</details>').join('')+'</div>';
 }
+
+
+function safeCard(open){const s=SG.safe;
+  return '<div class="card" style="background:#fbf2f0;border-color:#efd6d1"><details'+(open?' open':'')+'><summary>'+s.titel+'</summary>'+s.text.map(t=>'<p>'+t+'</p>').join('')
+   +'<h3>Fragen zum Nachspüren</h3><ul>'+s.fragen.map(q=>'<li>'+q+'</li>').join('')+'</ul>'
+   +'<h3>Eine Minute für dein Nervensystem</h3><ol>'+s.uebung.map(q=>'<li>'+q+'</li>').join('')+'</ol>'
+   +'<button class="soft small" onclick="breathe()">Mit Atemkugel üben</button>'
+   +(CH.defined.includes('Wurzel')?'':'<p class="hint" style="margin-top:8px">Deine Wurzel ist offen. Du spürst Druck von außen besonders stark, darum ist dieses Gefühl von Sicherheit für dich doppelt wichtig.</p>')
+   +'</details></div>';}
 
 function start(){
   const p=S.profile;const [hh,mi]=p.time.split(':').map(Number);
