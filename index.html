@@ -1374,6 +1374,20 @@ SG.oneByOne={titel:"Eins nach dem anderen",
  "Darum geht diese App anders. Du arbeitest immer nur an einer Stellschraube. Die erste ist die, die bei deinen Zielen am meisten bewirkt. Drei kleine Schritte pro Woche, mehr nicht.",
  "Erst wenn sich das leicht anfühlt und fast von allein passiert, gehst du zur nächsten. Das kann eine Woche dauern oder drei. Beides ist richtig. Was sitzt, bleibt, und darauf baust du auf.",
  "Du musst dich nicht zusammenreißen. Du darfst einfach den nächsten kleinen Schritt gehen."]};
+
+// 10 Tipps gegen stille Entzündungen
+SG.entzTips=[
+ ["schlaf","🌙","Vor Mitternacht schlafen gehen","Zu wenig und zu später Schlaf treibt Entzündungen an. Wer regelmäßig vor Mitternacht ins Bett geht, gibt dem Körper die lange Nachtruhe, in der er aufräumt und repariert."],
+ ["oel","🫒","Raffinierte Öle weglassen","Sonnenblumenöl, Maiskeimöl und raffinierte Mischöle aus dem Supermarkt fördern Entzündungen. Besser kaltgepresstes Olivenöl, zum Kochen Ghee oder Butter, kalt Leinöl."],
+ ["fisch","🐟","Fetter Fisch oder Algen","Lachs, Makrele, Sardinen und Hering liefern Omega 3 in der Form, die der Körper direkt nutzt. Wer keinen Fisch isst, kann auf Algenöl ausweichen."],
+ ["poly","🫐","Omega 3 mit bunten Pflanzenstoffen kombinieren","Polyphenole stecken in Beeren, grünem Tee, Kräutern, dunklem Gemüse und gutem Olivenöl. Zusammen mit Omega 3 wirken sie stärker, zum Beispiel Fisch mit Kräutern und Olivenöl, danach ein paar Beeren."],
+ ["zucker","🍯","Zucker und schnelle Kohlenhydrate reduzieren","Weißmehl, Süßes und süße Getränke halten das stille Feuer am Brennen. Zucker darf ein bewusster Genuss sein, nicht der Treibstoff für den Tag."],
+ ["kefir","🥛","Frischen Kefir selbst machen","Selbst angesetzter Kefir hat viel mehr lebendige Kulturen als gekaufter und pflegt den Darm, wo ein großer Teil der Abwehr sitzt."],
+ ["weide","🐄","Fleisch und Innereien aus Weidehaltung","Tiere von der Weide haben mehr gute Fette. Leber ist ein echtes Kraftpaket an Vitaminen und Eisen, eine kleine Portion pro Woche reicht."],
+ ["ballast","🌾","Natürliche Ballaststoffe","Gemüse, Leinsamen, Hafer und Hülsenfrüchte füttern die guten Darmbakterien. Die bilden daraus Stoffe, die Entzündungen beruhigen."],
+ ["pausen","⏱","Pausen zwischen den Mahlzeiten","Wer ständig nebenbei isst, gibt dem Körper keine Zeit zum Aufräumen. Drei Mahlzeiten mit vier bis fünf Stunden Pause dazwischen beruhigen Blutzucker und Entzündung."],
+ ["kurkuma","🟠","Kurkuma richtig kombinieren","Kurkuma wirkt entzündungshemmend, der Körper nimmt es aber schlecht auf. Mit schwarzem Pfeffer und etwas Fett wird es deutlich besser verwertet, zum Beispiel in Suppe, Curry oder goldener Milch."]
+];
 </script>
 <script>const CITIES=[["Wien","Europe/Vienna"],["Tulln an der Donau","Europe/Vienna"],["St. Pölten","Europe/Vienna"],["Krems","Europe/Vienna"],["Klosterneuburg","Europe/Vienna"],["Hollabrunn","Europe/Vienna"],["Mistelbach","Europe/Vienna"],["Korneuburg","Europe/Vienna"],["Stockerau","Europe/Vienna"],["Wiener Neustadt","Europe/Vienna"],["Baden","Europe/Vienna"],["Mödling","Europe/Vienna"],["Amstetten","Europe/Vienna"],["Melk","Europe/Vienna"],["Zwettl","Europe/Vienna"],["Horn","Europe/Vienna"],["Gänserndorf","Europe/Vienna"],["Neunkirchen","Europe/Vienna"],["Linz","Europe/Vienna"],["Wels","Europe/Vienna"],["Steyr","Europe/Vienna"],["Salzburg","Europe/Vienna"],["Graz","Europe/Vienna"],["Leoben","Europe/Vienna"],["Klagenfurt","Europe/Vienna"],["Villach","Europe/Vienna"],["Innsbruck","Europe/Vienna"],["Bregenz","Europe/Vienna"],["Dornbirn","Europe/Vienna"],["Feldkirch","Europe/Vienna"],["Eisenstadt","Europe/Vienna"],["Oberwart","Europe/Vienna"],["Berlin","Europe/Berlin"],["München","Europe/Berlin"],["Hamburg","Europe/Berlin"],["Köln","Europe/Berlin"],["Frankfurt am Main","Europe/Berlin"],["Stuttgart","Europe/Berlin"],["Düsseldorf","Europe/Berlin"],["Leipzig","Europe/Berlin"],["Dresden","Europe/Berlin"],["Nürnberg","Europe/Berlin"],["Passau","Europe/Berlin"],["Regensburg","Europe/Berlin"],["Rosenheim","Europe/Berlin"],["Hannover","Europe/Berlin"],["Bremen","Europe/Berlin"],["Rostock","Europe/Berlin"],["Erfurt","Europe/Berlin"],["Ost-Berlin (DDR)","Europe/Berlin"],["Zürich","Europe/Zurich"],["Bern","Europe/Zurich"],["Basel","Europe/Zurich"],["Luzern","Europe/Zurich"],["St. Gallen","Europe/Zurich"],["Vaduz","Europe/Vaduz"],["Bozen","Europe/Rome"],["Meran","Europe/Rome"],["Rom","Europe/Rome"],["Mailand","Europe/Rome"],["Budapest","Europe/Budapest"],["Prag","Europe/Prague"],["Brünn","Europe/Prague"],["Bratislava","Europe/Bratislava"],["Ljubljana","Europe/Ljubljana"],["Zagreb","Europe/Zagreb"],["Belgrad","Europe/Belgrade"],["Sarajevo","Europe/Sarajevo"],["Warschau","Europe/Warsaw"],["Bukarest","Europe/Bucharest"],["Sofia","Europe/Sofia"],["Istanbul","Europe/Istanbul"],["Athen","Europe/Athens"],["Paris","Europe/Paris"],["London","Europe/London"],["Amsterdam","Europe/Amsterdam"],["Brüssel","Europe/Brussels"],["Madrid","Europe/Madrid"],["Lissabon","Europe/Lisbon"],["Stockholm","Europe/Stockholm"],["Moskau","Europe/Moscow"],["Kiew","Europe/Kyiv"],["New York","America/New_York"],["Los Angeles","America/Los_Angeles"],["Toronto","America/Toronto"],["Sydney","Australia/Sydney"]];
 const MONTHS=["Jänner","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
@@ -1622,7 +1636,7 @@ function renderBody(){
     +(t.atem?'<button class="soft small" onclick="breathe()">Atemübung starten</button>':'')
     +(t.med?'<div class="box rosa">Bitte nur begleitend und in Absprache mit deiner Ärztin. Medikamente nie selbst absetzen, wenn sich durch die Ernährung etwas verändert, darf sie mit dir gemeinsam anpassen.</div>':'')+'</div>').join('');
   h+='<div class="card"><span class="tag g">Blutgruppe '+S.profile.blood+'</span><h2>Entzündungshemmend für dich</h2><p>'+B.entz+'</p><details><summary>Tauschen statt verbieten</summary>'+B.tausch.map(r=>'<div class="food"><div>'+r[0]+'<div class="alt">stattdessen '+r[1]+'</div></div></div>').join('')+'</details></div>';
-  h+=entzCard()+stressCard();
+  h+=entzCard()+entzTipsCard()+stressCard();
   h+='<div class="card"><h2>'+SG.omega.titel+'</h2><p>'+SG.omega.text+'</p><p><b>Fisch</b> '+SG.omega.fisch+'</p><p><b>Aus Pflanzen</b> '+SG.omega.pflanze+'</p><p><b>Sonst noch</b> '+SG.omega.sonst+'</p></div>';
   h+='<div class="card"><h2>Lust auf, was steckt dahinter?</h2><p class="hint">Denkansätze, keine Diagnose.</p>'+SG.cravings.map(c=>'<details style="border-bottom:1px solid var(--linie)"><summary>'+c[1]+'</summary><ul>'+c[2].map(t=>'<li>'+t+'</li>').join('')+'</ul><p><b>Was guttun könnte</b> '+c[3]+'</p></details>').join('')+'</div>';
   h+=hormonesAll();
@@ -1880,6 +1894,7 @@ function renderZiel(){
      +'</div>';
     const tips=lifeTips();
     if(tips.length)h+='<div class="card"><h2>Neben Arbeit, Kindern und Hobby</h2><ul>'+tips.map(l=>l[2].slice(0,2).map(t=>'<li>'+t+'</li>').join('')).join('')+'</ul></div>';
+    if(G.some(g=>g.id==='entz'))h+=entzTipsCard();
     h+='<div class="card"><h2>Mehr zu einzelnen Zielen</h2>'+G.map(g=>'<details><summary>'+g.icon+' '+g.name+'</summary><p>'+g.was+'</p><p><b>Bewegung</b> '+g.bew+'</p></details>').join('')+'</div>';
   }
   $('zielOut').innerHTML=h;
@@ -2009,6 +2024,21 @@ function stressCard(){
 function entzCard(){const E=SG.entzInfo,B=NK.blood[S.profile.blood];
   return '<div class="card"><h2>Was heißt entzündungshemmend?</h2><p>'+E.was+'</p><h3>Was das Feuer anheizt</h3><p>'+E.feuer+'</p><h3>Was es löscht</h3><p>'+E.loeschen+'</p><p class="hint">Für Blutgruppe '+S.profile.blood+' besonders, '+B.entz+'.</p><h3>Und Zucker?</h3><p>'+E.zucker+'</p>'
    +(!CH.defined.includes('Sakral')?'<div class="box rosa">Dein Sakralzentrum ist offen, du hast keine Dauerenergie. Genau dann greift man gern zu Süßem, um weiterzumachen. Oft ist eine Pause der bessere Schub.</div>':'<div class="box rosa">Dein Sakralzentrum ist definiert. Wenn du trotzdem dauernd Zucker brauchst, machst du vermutlich etwas, das dich nicht wirklich begeistert. Dann fehlt nicht Zucker, sondern Freude an der Sache.</div>')+'</div>';}
+
+
+function entzTipsCard(){
+  const b=S.profile.blood,det=CH.determination,notes={};
+  if(b==='0')notes.kefir='Für Blutgruppe 0 sind Milchprodukte eher schwierig. Sauerkraut oder Kefir aus Kokos oder Wasser ist für dich die bessere Wahl.';
+  if(b==='A')notes.weide='Für Blutgruppe A ist rotes Fleisch belastend. Fisch, Pute oder Tofu passen besser.';
+  if(b==='AB')notes.weide='Für Blutgruppe AB passen Lamm, Pute und Kaninchen besser als Rind oder Schwein.';
+  notes.kurkuma='Laut Blutgruppenliste meidest du schwarzen Pfeffer. Kurkuma mit etwas Fett, Olivenöl oder Ghee wird auch besser aufgenommen, und eine kleine Prise Pfeffer im Essen ist für die meisten gut verträglich.';
+  if(isBudget())notes.fisch='Günstig und genauso gut, Sardinen, Makrele oder Hering aus der Dose. Wildlachs ist teuer und kein Muss.';
+  if(det.color===1&&det.side==='R')notes.pausen='Du bist laut Design ein Sammler und verträgst kleine Portionen öfter gut. Wichtig ist nur, dass die kleinen Mahlzeiten nicht süß sind, sondern Nüsse, Gemüse, Eier oder Topfen.';
+  if((S.profile.life||[]).includes('stillen'))notes.pausen='In der Stillzeit bitte nicht auf Zwischenmahlzeiten verzichten. Dein Körper braucht jetzt regelmäßig Energie.';
+  if(det.color===6&&det.side==='R')notes.schlaf='Du bist Nachtesser. Iss trotzdem so, dass du zwei Stunden vor dem Schlafen fertig bist, dann klappt es auch mit früher schlafen.';
+  return '<div class="card"><h2>10 Tipps gegen stille Entzündungen</h2><p class="hint">Fang mit einem an, der dir leicht fällt.</p>'
+   +SG.entzTips.map(t=>'<details style="border-bottom:1px solid var(--linie)"><summary>'+t[1]+' '+t[2]+'</summary><p>'+t[3]+'</p>'+(notes[t[0]]?'<div class="box rosa">'+notes[t[0]]+'</div>':'')+'</details>').join('')+'</div>';
+}
 
 function start(){
   const p=S.profile;const [hh,mi]=p.time.split(':').map(Number);
