@@ -114,7 +114,7 @@ details summary{cursor:pointer;font-weight:700;padding:6px 0}
    <div class="row"><div><label for="s-time">Uhrzeit</label><input id="s-time" type="time" value="12:00"></div>
    <div class="rel"><label for="s-city">Geburtsort</label><input id="s-city" placeholder="Ort eintippen" autocomplete="off"><div id="citySug" class="sug"></div></div></div>
    <label for="s-tz">Zeitzone</label><select id="s-tz"></select><div class="hint" id="cityHint">Ort auswählen, dann stimmt die Zeitzone von selbst</div>
-   <h3>Was möchtest du als Erstes erreichen?</h3><div class="tiles" id="s-goal"></div>
+   <h3>Was möchtest du erreichen?</h3><p class="hint">Tipp alles an, was dir wichtig ist. Die App sortiert daraus deine Schritte.</p><div class="tiles" id="s-goal"></div>
    <details style="margin-top:12px" id="s-more"><summary>Mehr Angaben, das geht auch später</summary>
    <label>Mein Alltag</label><div class="chips" id="s-life"></div>
    <h3>Meine Körperthemen</h3>
@@ -1195,7 +1195,7 @@ SG.goals=[
   bew:"Regelmäßig draußen bewegen, auch bei Wind und Wetter, aber nicht bis zur Erschöpfung.",
   kopf:["Wogegen wehre ich mich gerade?","Wo bin ich schutzlos?","Was gibt mir Sicherheit?"],
   schritte:["Vitamin D bei der Ärztin checken lassen","Täglich etwas Gesäuertes wie Kefir oder Sauerkraut, wenn deine Blutgruppe passt","Sieben bis acht Stunden Schlaf"]},
- {id:"hormone",name:"Hormone in Balance",icon:"🌸",
+ {id:"hormone",name:"Hormone und Schilddrüse in Balance",icon:"🌸",
   was:"Hormone reagieren auf Blutzucker, Stress, Schlaf und gute Fette. Wenn eins davon dauerhaft kippt, gerät das ganze System ins Wanken.",
   gut:["Leinsamen","Lachs","Makrele","Eier","Brokkoli","Kraut","Kohlsprossen","Walnüsse","Kürbiskerne","Olivenöl"],
   weniger:["Zucker","Bier","Rotwein","Kaffee","Limo"],
@@ -1353,6 +1353,27 @@ SG.stressCenter={
  G:["Am falschen Ort essen","Dein offenes G Zentrum reagiert stark auf Räume. Ein Platz, an dem du dich wohlfühlst, ist halbe Verdauung."]
 };
 SG.notSelf={"Generator":"Frust","Manifestierender Generator":"Frust und Wut","Projektor":"Bitterkeit","Manifestor":"Wut","Reflektor":"Enttäuschung"};
+
+// Stellschrauben statt fester Etappen
+SG.levers=[
+ {id:"schlaf",icon:"🌙",name:"Schlaf",was:"Im Schlaf räumt dein Körper auf, senkt Entzündungen, sortiert die Hormone und regelt Hunger und Sattsein.",goals:["entz","abnehmen","hormone","schlaf","energie","stress","immun","figur","blutzucker","muskeln"],steps:["Jeden Abend ungefähr zur gleichen Zeit ins Bett","Bildschirm eine Stunde vor dem Schlafen weglegen","Abendessen passend zu deinem Licht, siehe Essensstil"]},
+ {id:"stress",icon:"🌊",name:"Stress und Cortisol runter",was:"Dauerstress hält Cortisol oben. Das heizt Entzündungen an, hält Bauchfett fest, stört Schlaf und Schilddrüse.",goals:["entz","abnehmen","hormone","schlaf","energie","stress","verdauung","immun","frieden","figur","blutzucker"],steps:["Drei Mal am Tag drei Atemzüge, länger aus als ein","Eine Mahlzeit am Tag ganz ohne Handy","Eine Sache diese Woche streichen oder abgeben"]},
+ {id:"zucker",icon:"🍯",name:"Zucker und Weißmehl reduzieren",was:"Zucker gibt kurz Energie und nimmt sie schnell wieder. Dauerhaft heizt er Entzündungen an, lässt den Körper speichern und stört den Schlaf.",goals:["entz","abnehmen","schlaf","blutzucker","energie","hormone","figur","immun","verdauung"],steps:["Süße Getränke gegen Wasser oder Tee tauschen","Süßes nur noch bewusst nach einer Mahlzeit, nicht zwischendurch","Weißmehl gegen Hafer, Hirse oder Reis tauschen, passend zu deiner Blutgruppe"]},
+ {id:"eiweiss",icon:"✋",name:"Eiweiß und Handmaß",was:"Eiweiß macht lange satt, hält den Blutzucker ruhig, schützt die Muskeln und liefert Bausteine für Hormone, auch für die Schilddrüse.",goals:["abnehmen","muskeln","hormone","figur","blutzucker","energie"],steps:["Zu jeder Mahlzeit eine Handfläche Eiweiß","Teller nach Handmaß, siehe Deine Portion heute","Wenn Snack, dann mit Eiweiß statt Süßem"]},
+ {id:"omega",icon:"🌿",name:"Entzündungshemmend essen",was:"Omega 3, buntes Gemüse und gute Fette löschen das stille Feuer im Körper.",goals:["entz","hormone","immun","energie","schlaf"],steps:["Zwei Mal pro Woche Fisch, gern aus der Dose","Täglich ein Löffel Leinöl oder eine Handvoll Walnüsse","Jeden Tag zwei Farben Gemüse am Teller"]},
+ {id:"bewegung",icon:"🚶",name:"Bewegung, die zu dir passt",was:"Bewegung senkt Blutzucker und Stress, baut Muskeln auf und macht müde genug für guten Schlaf.",goals:["abnehmen","muskeln","energie","stress","schlaf","blutzucker","figur","hormone"],steps:["Täglich zwanzig Minuten gehen, am liebsten draußen","Zwei Mal pro Woche Kraft, auch zuhause","Zehn Minuten gehen nach der größten Mahlzeit"]},
+ {id:"stil",icon:"🍴",name:"Dein Essensstil",was:"Wie, wann und wo du isst, laut deinem Design. Wenn das passt, verdaut dein Körper entspannt.",goals:["verdauung","frieden","abnehmen","entz"],steps:[]},
+ {id:"darm",icon:"🌀",name:"Darm pflegen",was:"Im Darm sitzt ein großer Teil deiner Abwehr, und dort entsteht viel von deinem Serotonin.",goals:["verdauung","immun","entz","frieden"],steps:["Jeden Bissen gut kauen","Täglich etwas Gesäuertes wie Kefir oder Sauerkraut, wenn deine Blutgruppe passt","Leinsamen oder Hafer für die Ballaststoffe"]},
+ {id:"schild",icon:"🦋",name:"Jod und Selen für die Schilddrüse",was:"Die Schilddrüse braucht Jod, Selen und Tyrosin, um ihre Hormone zu bilden.",goals:["hormone"],steps:["Ein bis zwei Mal pro Woche Meeresfisch, auch aus der Dose","Jodsalz statt normalem Salz verwenden","Werte bei der Ärztin checken lassen, bevor du etwas ergänzt"]},
+ {id:"kopf",icon:"💭",name:"Was im Kopf mitspielt",was:"Lust auf Süßes, Belohnung, Trost. Wenn du weißt, was dahintersteckt, verliert es an Macht.",goals:["frieden","abnehmen","figur","blutzucker"],steps:[]},
+ {id:"becken",icon:"👶",name:"Beckenboden und Rumpf",was:"Nach dem Baby zuerst die Mitte stärken, dann erst Laufen oder Springen.",goals:["figur"],steps:["Beckenbodenübung beim Zähneputzen","Täglich zwanzig Minuten mit dem Kinderwagen gehen","Eine Rückbildungsstunde einplanen"]}
+];
+
+SG.oneByOne={titel:"Eins nach dem anderen",
+ text:["Wir wissen oft genau, was uns guttun würde. Und dann wollen wir alles auf einmal ändern. Ab Montag kein Zucker, jeden Tag Sport, früher ins Bett, mehr Gemüse. Zwei Wochen später ist alles wieder beim Alten, und wir fühlen uns schlechter als vorher.",
+ "Darum geht diese App anders. Du arbeitest immer nur an einer Stellschraube. Die erste ist die, die bei deinen Zielen am meisten bewirkt. Drei kleine Schritte pro Woche, mehr nicht.",
+ "Erst wenn sich das leicht anfühlt und fast von allein passiert, gehst du zur nächsten. Das kann eine Woche dauern oder drei. Beides ist richtig. Was sitzt, bleibt, und darauf baust du auf.",
+ "Du musst dich nicht zusammenreißen. Du darfst einfach den nächsten kleinen Schritt gehen."]};
 </script>
 <script>const CITIES=[["Wien","Europe/Vienna"],["Tulln an der Donau","Europe/Vienna"],["St. Pölten","Europe/Vienna"],["Krems","Europe/Vienna"],["Klosterneuburg","Europe/Vienna"],["Hollabrunn","Europe/Vienna"],["Mistelbach","Europe/Vienna"],["Korneuburg","Europe/Vienna"],["Stockerau","Europe/Vienna"],["Wiener Neustadt","Europe/Vienna"],["Baden","Europe/Vienna"],["Mödling","Europe/Vienna"],["Amstetten","Europe/Vienna"],["Melk","Europe/Vienna"],["Zwettl","Europe/Vienna"],["Horn","Europe/Vienna"],["Gänserndorf","Europe/Vienna"],["Neunkirchen","Europe/Vienna"],["Linz","Europe/Vienna"],["Wels","Europe/Vienna"],["Steyr","Europe/Vienna"],["Salzburg","Europe/Vienna"],["Graz","Europe/Vienna"],["Leoben","Europe/Vienna"],["Klagenfurt","Europe/Vienna"],["Villach","Europe/Vienna"],["Innsbruck","Europe/Vienna"],["Bregenz","Europe/Vienna"],["Dornbirn","Europe/Vienna"],["Feldkirch","Europe/Vienna"],["Eisenstadt","Europe/Vienna"],["Oberwart","Europe/Vienna"],["Berlin","Europe/Berlin"],["München","Europe/Berlin"],["Hamburg","Europe/Berlin"],["Köln","Europe/Berlin"],["Frankfurt am Main","Europe/Berlin"],["Stuttgart","Europe/Berlin"],["Düsseldorf","Europe/Berlin"],["Leipzig","Europe/Berlin"],["Dresden","Europe/Berlin"],["Nürnberg","Europe/Berlin"],["Passau","Europe/Berlin"],["Regensburg","Europe/Berlin"],["Rosenheim","Europe/Berlin"],["Hannover","Europe/Berlin"],["Bremen","Europe/Berlin"],["Rostock","Europe/Berlin"],["Erfurt","Europe/Berlin"],["Ost-Berlin (DDR)","Europe/Berlin"],["Zürich","Europe/Zurich"],["Bern","Europe/Zurich"],["Basel","Europe/Zurich"],["Luzern","Europe/Zurich"],["St. Gallen","Europe/Zurich"],["Vaduz","Europe/Vaduz"],["Bozen","Europe/Rome"],["Meran","Europe/Rome"],["Rom","Europe/Rome"],["Mailand","Europe/Rome"],["Budapest","Europe/Budapest"],["Prag","Europe/Prague"],["Brünn","Europe/Prague"],["Bratislava","Europe/Bratislava"],["Ljubljana","Europe/Ljubljana"],["Zagreb","Europe/Zagreb"],["Belgrad","Europe/Belgrade"],["Sarajevo","Europe/Sarajevo"],["Warschau","Europe/Warsaw"],["Bukarest","Europe/Bucharest"],["Sofia","Europe/Sofia"],["Istanbul","Europe/Istanbul"],["Athen","Europe/Athens"],["Paris","Europe/Paris"],["London","Europe/London"],["Amsterdam","Europe/Amsterdam"],["Brüssel","Europe/Brussels"],["Madrid","Europe/Madrid"],["Lissabon","Europe/Lisbon"],["Stockholm","Europe/Stockholm"],["Moskau","Europe/Moscow"],["Kiew","Europe/Kyiv"],["New York","America/New_York"],["Los Angeles","America/Los_Angeles"],["Toronto","America/Toronto"],["Sydney","Australia/Sydney"]];
 const MONTHS=["Jänner","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
@@ -1413,7 +1434,7 @@ function initSetup(){
   sug.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const c=CITIES[+b.dataset.i];inp.value=c[0];$('s-tz').value=c[1];sug.classList.remove('on');$('cityHint').textContent='Passt, Zeitzone gesetzt';});
   document.addEventListener('click',e=>{if(!e.target.closest('#s-city')&&!e.target.closest('#citySug'))sug.classList.remove('on');if(!e.target.closest('#f-add')&&!e.target.closest('#foodSug'))$('foodSug').classList.remove('on');});
   renderThemeChips('w',[]);renderSetupGoals('w');
-  $('s-goal').addEventListener('click',e=>{const b=e.target.closest('.tile');if(!b)return;$('s-goal').querySelectorAll('.tile').forEach(x=>x.classList.toggle('on',x===b));});
+  $('s-goal').addEventListener('click',e=>{const b=e.target.closest('.tile');if(b)b.classList.toggle('on');});
   $('s-themes').addEventListener('click',e=>{const b=e.target.closest('.chip');if(b)b.classList.toggle('on');});
   $('s-life').innerHTML=SG.life.map(l=>'<button type="button" class="chip" data-l="'+l[0]+'">'+l[1]+'</button>').join('');
   $('s-life').addEventListener('click',e=>{const b=e.target.closest('.chip');if(b)b.classList.toggle('on');});
@@ -1421,7 +1442,7 @@ function initSetup(){
     renderThemeChips(b.dataset.s,[...document.querySelectorAll('#s-themes .chip.on')].map(c=>c.dataset.t));renderSetupGoals(b.dataset.s);
     $('s-life').querySelector('[data-l=stillen]').style.display=b.dataset.s==='m'?'none':'';});
 }
-function renderSetupGoals(sex){const cur=($('s-goal').querySelector('.tile.on')||{dataset:{}}).dataset.g;$('s-goal').innerHTML=SG.goals.filter(g=>!g.sex||g.sex===sex).map(g=>'<button type="button" class="tile'+(g.id===cur?' on':'')+'" data-g="'+g.id+'"><span>'+g.icon+'</span>'+g.name+'</button>').join('');}
+function renderSetupGoals(sex){const curL=[...$('s-goal').querySelectorAll('.tile.on')].map(t=>t.dataset.g);$('s-goal').innerHTML=SG.goals.filter(g=>!g.sex||g.sex===sex).map(g=>'<button type="button" class="tile'+(curL.includes(g.id)?' on':'')+'" data-g="'+g.id+'"><span>'+g.icon+'</span>'+g.name+'</button>').join('');}
 function renderThemeChips(sex,sel){
   const th=SG.themes.filter(t=>!t.sex||t.sex===sex);const groups=[...new Set(th.map(t=>t.g))];
   $('s-themes').innerHTML=groups.map(g=>'<div class="hint" style="margin-top:8px;font-weight:700">'+g+'</div><div class="chips">'+th.filter(t=>t.g===g).map(t=>'<button type="button" class="chip'+(sel.includes(t.id)?' on':'')+'" data-t="'+t.id+'">'+t.name+'</button>').join('')+'</div>').join('');
@@ -1431,7 +1452,7 @@ function fillSetup(){
   const p=S.profile;if(!p)return;
   $('s-name').value=p.name||'';$('s-blood').value=p.blood;$('s-dd').value=p.d;$('s-mm').value=p.m;$('s-yy').value=p.y;
   $('s-time').value=p.time;$('s-city').value=p.city||'';$('s-tz').value=p.tz;$('s-weight').value=p.weight||'';$('s-goal').value=p.goal||'';$('s-why').value=p.why||'';
-  $('s-sex').querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c.dataset.s===(p.sex||'w')));renderThemeChips(p.sex||'w',p.themes);renderSetupGoals(p.sex||'w');const f0=(Array.isArray(p.focus)?p.focus:[p.focus])[0];$('s-goal').querySelectorAll('.tile').forEach(t=>t.classList.toggle('on',t.dataset.g===f0));
+  $('s-sex').querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c.dataset.s===(p.sex||'w')));renderThemeChips(p.sex||'w',p.themes);renderSetupGoals(p.sex||'w');const fl=Array.isArray(p.focus)?p.focus:[p.focus];$('s-goal').querySelectorAll('.tile').forEach(t=>t.classList.toggle('on',fl.includes(t.dataset.g)));
   $('s-life').querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',(p.life||[]).includes(c.dataset.l)));
 }
 $('saveProfile').onclick=()=>{
@@ -1439,7 +1460,7 @@ $('saveProfile').onclick=()=>{
   if(new Date(Date.UTC(y,m-1,d)).getUTCMonth()!==m-1){$('setupErr').textContent='Dieses Datum gibt es nicht.';return;}
   const num=id=>{const v=parseFloat(String($(id).value).replace(',','.'));return isFinite(v)?v:null;};
   S.profile={name:$('s-name').value.trim(),blood:$('s-blood').value,y,m,d,time:$('s-time').value||'12:00',city:$('s-city').value.trim(),tz:$('s-tz').value,
-    themes:[...document.querySelectorAll('#s-themes .chip.on')].map(c=>c.dataset.t),sex:($('s-sex').querySelector('.chip.on')||{dataset:{s:'w'}}).dataset.s,life:[...document.querySelectorAll('#s-life .chip.on')].map(c=>c.dataset.l),focus:(()=>{const t=$('s-goal').querySelector('.tile.on');const old=S.profile&&S.profile.focus?(Array.isArray(S.profile.focus)?S.profile.focus:[S.profile.focus]):[];if(!t)return old;return [t.dataset.g,...old.filter(x=>x!==t.dataset.g)];})(),weight:num('s-weight'),goal:num('s-goal'),why:$('s-why').value.trim()};
+    themes:[...document.querySelectorAll('#s-themes .chip.on')].map(c=>c.dataset.t),sex:($('s-sex').querySelector('.chip.on')||{dataset:{s:'w'}}).dataset.s,life:[...document.querySelectorAll('#s-life .chip.on')].map(c=>c.dataset.l),focus:(()=>{const t=[...$('s-goal').querySelectorAll('.tile.on')].map(x=>x.dataset.g);if(t.length)return t;return S.profile&&S.profile.focus?(Array.isArray(S.profile.focus)?S.profile.focus:[S.profile.focus]):[];})(),weight:num('s-weight'),goal:num('s-goal'),why:$('s-why').value.trim()};
   if(!S.stage)S.stage={n:1,since:todayStr()};
   save();start();go('heute');toast('Gespeichert');
 };
@@ -1778,42 +1799,51 @@ function combine(goals){
   const cen=Object.entries(centers).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([c])=>c);
   return {foods,weniger,hormones,amino,steps,bew,cen};
 }
-SG.stages=[["Satt und klar","Satt werden mit Handmaß, die richtigen Lebensmittel und der Hungercheck"],["Dein Essensstil","Wie, wann und wo du am besten isst, aus deinem Design"],["Bewegung, die zu dir passt","Bewegung nach deinem Typ, ohne dich zu verausgaben"],["Was im Kopf mitspielt","Lust auf Süßes, Belohnung, Trost, und was wirklich dahintersteckt"]];
-function stageN(){if(!S.stage)S.stage={n:1,since:todayStr()};return S.stage.n;}
-function stageSteps(n){
-  const G=focusList();if(!G.length)return [];
-  const det=NK.determination[CH.determination.color],DT=det[CH.determination.side],env=NK.environment[CH.environment.color];
-  const mot=SG.motivation[CH.P['Sonne'].color];const C=combine(G);
-  if(n===1)return C.steps;
-  if(n===2)return ['Iss diese Woche nach deinem Essensstil, '+det.name+' '+DT[0],'Such dir zum Essen einen Ort, der zu dir passt, '+env[0],'Merk dir nach dem Essen kurz, ob du dich leicht oder schwer fühlst'];
-  if(n===3)return [C.bew[0],'Trag jede Bewegung ein, auch Spazieren zählt','Hör auf, bevor du erschöpft bist, und gönn dir danach Ruhe'];
-  return ['Vor jedem Naschen der kurze Check, Hunger oder Kopf','Jeden Abend drei Dinge, mit denen du heute gut für dich gesorgt hast','Beantworte einmal ehrlich die Frage, '+mot.fragen[0]];
+function leverList(){
+  const G=focusList().map(g=>g.id);if(!G.length)return [];
+  return SG.levers.map((l,i)=>({l,i,hit:l.goals.filter(x=>G.includes(x))})).filter(x=>x.hit.length).sort((a,b)=>b.hit.length-a.hit.length||a.i-b.i).map(x=>Object.assign({},x.l,{hit:x.hit}));
 }
-function checksKey(){return 'stage'+stageN()+'_'+weekKey();}
+function leverState(){if(!S.lev)S.lev={done:[],since:todayStr()};return S.lev;}
+function currentLever(){const L=leverList(),st=leverState();return L.find(l=>!st.done.includes(l.id))||null;}
+function leverSteps(l){
+  if(!l)return [];
+  if(l.id==='stil'){const det=NK.determination[CH.determination.color],DT=det[CH.determination.side],env=NK.environment[CH.environment.color];return ['Iss diese Woche nach deinem Essensstil, '+det.name+' '+DT[0],'Such dir zum Essen einen Ort, der zu dir passt, '+env[0],'Merk dir nach dem Essen kurz, ob du dich leicht oder schwer fühlst'];}
+  if(l.id==='kopf'){const mot=SG.motivation[CH.P['Sonne'].color];return ['Vor jedem Naschen der kurze Check, Hunger oder Kopf','Jeden Abend drei Dinge, mit denen du heute gut für dich gesorgt hast','Beantworte einmal ehrlich die Frage, '+mot.fragen[0]];}
+  if(l.id==='schlaf'){const det=NK.determination[6];const s=l.steps.slice();if(CH.determination.color===6)s[2]=CH.determination.side==='L'?'Früh und leicht zu Abend essen, du bist Tagesesser':'Hauptmahlzeit am Abend ist für dich in Ordnung, aber zwei Stunden vor dem Schlafen fertig';else s[2]='Abendessen zwei bis drei Stunden vor dem Schlafen';return s;}
+  if(l.id==='bewegung'){const s=l.steps.slice();if(CH.type==='Projektor'||CH.type==='Reflektor')s[1]='Zwei Mal pro Woche kurz und gezielt Kraft, zwanzig bis dreißig Minuten reichen';return s;}
+  return l.steps;
+}
+function checksKey(){const l=currentLever();return 'lev_'+(l?l.id:'x')+'_'+weekKey();}
 function stageChecks(){S.checks=S.checks||{};return S.checks[checksKey()]=(S.checks[checksKey()]||[false,false,false]);}
+const goalIcons=ids=>ids.map(id=>(SG.goals.find(g=>g.id===id)||{}).icon||'').join(' ');
 function renderGoalToday(){
   const G=focusList();
-  if(!G.length){$('goalToday').innerHTML='<div class="card"><h2>Was möchtest du erreichen?</h2><p class="hint">Wähl ein Ziel, dann bekommst du jeden Tag einen kleinen Schritt.</p><button class="wide" onclick="go(\'weg\')">Ziel wählen</button></div>';return;}
-  const n=stageN(),st=stageSteps(n),ck=stageChecks();const done=ck.filter(Boolean).length;
-  $('goalToday').innerHTML='<div class="card"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px"><div><span class="tag g">Etappe '+n+' von 4 · '+SG.stages[n-1][0]+'</span><div style="font-weight:700">'+G.map(g=>g.icon+' '+g.name).join('<br>')+'</div></div><button class="soft small" onclick="go(\'weg\')">Mein Weg</button></div>'
+  if(!G.length){$('goalToday').innerHTML='<div class="card"><h2>Was möchtest du erreichen?</h2><p class="hint">Wähl deine Ziele, dann bekommst du jeden Tag einen kleinen Schritt.</p><button class="wide" onclick="go(\'weg\')">Ziele wählen</button></div>';applyStage();return;}
+  const L=leverList(),l=currentLever();
+  if(!l){$('goalToday').innerHTML='<div class="card"><span class="tag g">Alle Stellschrauben geschafft</span><h2>'+G.map(g=>g.icon).join(' ')+' Stark</h2><p>Du hast alle Stellschrauben für deine Ziele eingebaut. Bleib dran, und schau unter Mein Weg, ob du ein neues Ziel dazunehmen willst.</p></div>';applyStage();return;}
+  const idx=L.findIndex(x=>x.id===l.id)+1,st=leverSteps(l),ck=stageChecks(),done=ck.filter(Boolean).length;
+  $('goalToday').innerHTML='<div class="card"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px"><div><span class="tag g">Stellschraube '+idx+' von '+L.length+'</span><h2 style="margin:0">'+l.icon+' '+l.name+'</h2><div class="hint">Hilft bei '+goalIcons(l.hit)+' '+l.hit.map(id=>SG.goals.find(g=>g.id===id).name).join(', ')+'</div></div><button class="soft small" onclick="go(\'weg\')">Mein Weg</button></div>'
    +'<h3 style="margin-top:12px">Deine drei Schritte diese Woche</h3><div id="tChecks">'+st.map((s,i)=>'<div class="check'+(ck[i]?' on':'')+'" data-c="'+i+'"><i>'+(ck[i]?'✓':'')+'</i><span>'+s+'</span></div>').join('')+'</div>'
    +'<p class="hint" style="margin-top:8px"><b>Diese Woche darf weg</b> '+stressList()[(dayNo()>>3)%Math.min(4,stressList().length)][0]+'</p>'
-   +(done===3?'<div class="box sonne">Alle drei geschafft. Wenn es sich leicht anfühlt, geh unter Mein Weg zur nächsten Etappe.</div>':'')+'</div>';
+   +(done===3?'<div class="box sonne">Alle drei geschafft. Wenn es sich leicht anfühlt, geh unter Mein Weg zur nächsten Stellschraube.</div>':'')+'</div>';
   $('tChecks').onclick=e=>{const x=e.target.closest('.check');if(!x)return;const c=stageChecks();c[+x.dataset.c]=!c[+x.dataset.c];save();renderGoalToday();};
   applyStage();
 }
-function applyStage(){const n=stageN();$('moveCard').style.display=n>=3?'':'none';$('impulse').style.display=n>=2?'':'none';}
+function applyStage(){const st=leverState(),cur=currentLever(),has=id=>st.done.includes(id)||(cur&&cur.id===id)||!cur;
+  $('moveCard').style.display=has('bewegung')||!leverList().some(l=>l.id==='bewegung')?'':'none';
+  $('impulse').style.display=has('stil')||!leverList().some(l=>l.id==='stil')?'':'none';}
+function stageN(){return leverState().done.length+1;}
 function renderWeg(){
-  const G=focusList(),n=stageN();
-  const days=S.stage&&S.stage.since?Math.floor((new Date(todayStr())-new Date(S.stage.since))/86400000):0;
-  let h='<div class="card"><h2>Dein Weg in vier Etappen</h2><p class="hint">Eine Etappe nach der anderen. Erst wenn etwas sitzt, kommt das Nächste dazu. So bleibt es leicht.</p>'
-   +SG.stages.map((s,i)=>'<div class="stage'+(i+1<n?' done':i+1===n?' cur':' lock')+'"><div class="n">'+(i+1<n?'✓':i+1)+'</div><div><b>'+s[0]+'</b><div class="hint">'+s[1]+'</div></div></div>').join('');
-  if(n<4)h+=(days>=7?'<div class="box sonne">Du bist seit '+days+' Tagen in dieser Etappe. Sitzt es? Dann darfst du weiter.</div>':'')+'<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><button id="stNext">Das sitzt, weiter</button>'+(n>1?'<button class="soft" id="stBack">Eine zurück</button>':'')+'</div>';
-  else h+='<div class="box">Du hast alle Etappen geschafft. Bleib dran, oder nimm unten ein weiteres Ziel dazu.</div>'+(n>1?'<button class="soft small" id="stBack" style="margin-top:8px">Eine Etappe zurück</button>':'');
+  const L=leverList(),st=leverState(),cur=currentLever();
+  const days=st.since?Math.floor((new Date(todayStr())-new Date(st.since))/86400000):0;
+  let h='<div class="card" style="background:#fdf7e8;border-color:#f1e2bb"><details'+(leverState().done.length?'':' open')+'><summary>'+SG.oneByOne.titel+'</summary>'+SG.oneByOne.text.map(t=>'<p>'+t+'</p>').join('')+'</details></div>'+'<div class="card"><h2>Deine Stellschrauben</h2><p class="hint">Sortiert danach, wie vielen deiner Ziele sie helfen. Oben steht, was am meisten bewirkt. Eine nach der anderen, so bleibt es leicht.</p>'
+   +(L.length?L.map((l,i)=>{const d=st.done.includes(l.id),c=cur&&cur.id===l.id;return '<div class="stage'+(d?' done':c?' cur':' lock')+'"><div class="n">'+(d?'✓':i+1)+'</div><div><b>'+l.icon+' '+l.name+'</b><div class="hint">'+l.was+'</div><div class="hint">Hilft bei '+goalIcons(l.hit)+'</div></div></div>';}).join(''):'<p>Wähl unten deine Ziele.</p>');
+  if(cur)h+=(days>=7?'<div class="box sonne">Du bist seit '+days+' Tagen bei '+cur.name+'. Sitzt es? Dann darfst du weiter.</div>':'')+'<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><button id="stNext">Das sitzt, weiter</button>'+(st.done.length?'<button class="soft" id="stBack">Eine zurück</button>':'')+'</div>';
+  else if(L.length)h+='<div class="box">Alle Stellschrauben sind eingebaut. Bleib dran oder nimm unten ein weiteres Ziel dazu.</div>'+(st.done.length?'<button class="soft small" id="stBack" style="margin-top:8px">Eine zurück</button>':'');
   h+='</div>';
   $('wegOut').innerHTML=h;
-  const nx=$('stNext');if(nx)nx.onclick=()=>{S.stage={n:Math.min(4,n+1),since:todayStr()};save();renderWeg();renderZiel();renderGoalToday();toast('Etappe '+S.stage.n+' ist frei');};
-  const bk=$('stBack');if(bk)bk.onclick=()=>{S.stage={n:Math.max(1,n-1),since:todayStr()};save();renderWeg();renderZiel();renderGoalToday();};
+  const nx=$('stNext');if(nx)nx.onclick=()=>{st.done.push(cur.id);st.since=todayStr();save();renderWeg();renderZiel();renderGoalToday();const n=currentLever();toast(n?'Weiter mit '+n.name:'Alles geschafft');};
+  const bk=$('stBack');if(bk)bk.onclick=()=>{st.done.pop();st.since=todayStr();save();renderWeg();renderZiel();renderGoalToday();};
 }
 function hormoneCard(name){const h=SG.hormones[name];if(!h)return '';
   let hd='';if(h.center){const def=CH.defined.includes(h.center);hd='<p class="hint">In Human Design gehört '+(h.organ||'das')+' zum Zentrum '+h.center+'. '+(SG.centerGoal[h.center]?SG.centerGoal[h.center][def?0:1]:'')+'</p>';}
@@ -1825,7 +1855,7 @@ function omegaHtml(C){if(!C.foods.slice(0,10).some(f=>['Lachs','Makrele','Sardin
   return '<details style="margin-top:6px"><summary>Kein frischer Seefisch in der Nähe?</summary><p>'+SG.omega.text+'</p><p><b>Fisch</b> '+SG.omega.fisch+'</p><p><b>Aus Pflanzen</b> '+SG.omega.pflanze+'</p><p><b>Sonst noch</b> '+SG.omega.sonst+'</p></details>';}
 function renderZiel(){
   const sel=focusList().map(g=>g.id);const AV=goalsFor();
-  const canMore=stageN()>=2||sel.length>1;let h='<div class="card"><h2>'+(sel.length?'Deine Ziele':'Was möchtest du erreichen?')+'</h2><p class="hint">'+(canMore?'Du kannst jetzt ein weiteres Ziel dazunehmen. Die App fasst alles für dich zusammen.':'Starte mit einem Ziel. Ab Etappe 2 kannst du ein weiteres dazunehmen.')+'</p><div class="tiles">'+AV.map(g=>'<button class="tile'+(sel.includes(g.id)?' on':'')+'" data-g="'+g.id+'"><span>'+g.icon+'</span>'+g.name+'</button>').join('')+'</div></div>';
+  const canMore=true;let h='<div class="card"><h2>'+(sel.length?'Deine Ziele':'Was möchtest du erreichen?')+'</h2><p class="hint">'+'Tipp alles an, was du erreichen willst. Die App ordnet die Stellschrauben darunter.'+'</p><div class="tiles">'+AV.map(g=>'<button class="tile'+(sel.includes(g.id)?' on':'')+'" data-g="'+g.id+'"><span>'+g.icon+'</span>'+g.name+'</button>').join('')+'</div></div>';
   const G=focusList();
   if(G.length){
     const C=combine(G);
@@ -1853,44 +1883,46 @@ function renderZiel(){
     h+='<div class="card"><h2>Mehr zu einzelnen Zielen</h2>'+G.map(g=>'<details><summary>'+g.icon+' '+g.name+'</summary><p>'+g.was+'</p><p><b>Bewegung</b> '+g.bew+'</p></details>').join('')+'</div>';
   }
   $('zielOut').innerHTML=h;
-  $('zielOut').querySelectorAll('.tile').forEach(b=>b.onclick=()=>{let f=focusList().map(g=>g.id);const id=b.dataset.g;if(f.includes(id)){if(f.length===1)return toast('Ein Ziel bleibt immer');f=f.filter(x=>x!==id);}else if(canMore||!f.length){f=[...f,id];}else{f=[id];}S.profile.focus=f;save();const y=window.scrollY;renderZiel();renderGoalToday();renderPortion();window.scrollTo({top:y});});
+  $('zielOut').querySelectorAll('.tile').forEach(b=>b.onclick=()=>{let f=focusList().map(g=>g.id);const id=b.dataset.g;if(f.includes(id)){if(f.length===1)return toast('Ein Ziel bleibt immer');f=f.filter(x=>x!==id);}else if(canMore||!f.length){f=[...f,id];}else{f=[id];}S.profile.focus=f;save();const y=window.scrollY;renderWeg();renderZiel();renderGoalToday();renderPortion();window.scrollTo({top:y});});
   const c=$('checks');if(c)c.onclick=e=>{const x=e.target.closest('.check');if(!x)return;const k=weekKey()+'combo';S.checks[k][+x.dataset.c]=!S.checks[k][+x.dataset.c];save();const y=window.scrollY;renderZiel();renderGoalToday();window.scrollTo({top:y});};
 }
 function hormonesAll(){return '<div class="card"><h2>Botenstoffe einfach erklärt</h2><p class="hint">Dopamin, Cortisol und Co. Was sie machen, woran du merkst, dass sie aus dem Takt sind, und was hilft.</p>'+Object.keys(SG.hormones).filter(n=>!(sexOf()==='m'&&n==='Östrogen und Progesteron')).map(hormoneCard).join('')+'</div>';}
 
 
 // Portionen nach Handmaß, angepasst an den Tag
-SG.levels=[["ruhig","Ruhiger Tag","viel gesessen, wenig Bewegung"],["normal","Normaler Tag","Alltag, etwas Bewegung"],["koerper","Körperlich gearbeitet","Haushalt mit Kindern, Garten, Baustelle, viel auf den Beinen"],["sport","Arbeit und Sport","körperlich aktiv und dazu Training"]];
+SG.levels=[["ruhig","Büro, viel Sitzen","Schreibtisch, Auto, wenig Bewegung"],["normal","Alltag mit Bewegung","Gehen, Einkaufen, Haushalt, etwas Bewegung"],["koerper","Körperliche Arbeit","Kinder tragen, Garten, Baustelle, Pflege, Handel, viel auf den Beinen"],["sport","Arbeit und Sport","körperlich aktiv und dazu Training"]];
 function exFoods(cats,n){const b=bi();return SG.foods.filter(f=>cats.includes(f[1])&&f[2][b]==='g').slice(0,n).map(f=>f[0]);}
-function renderPortion(){
-  const d=day(todayStr());const mv=d.moves.reduce((a,m)=>a+m.min,0);
-  let lv=d.level||(mv>=45?'sport':'normal');
-  const m=sexOf()==='m'?2:1;const G=focusList().map(g=>g.id);
+function portionFor(lv){const m=sexOf()==='m'?2:1;const G=focusList().map(g=>g.id);
   let p={e:m,g:m*2,k:m,f:m};
   if(lv==='ruhig'){p.k=m*0.5;}
   if(lv==='koerper'){p.k=m+1;p.f=m+0.5;}
   if(lv==='sport'){p.k=m+1.5;p.f=m+1;p.e=m+0.5;}
-  if(G.includes('muskeln'))p.e+=0.5;
-  const fmt=x=>{const w=Math.floor(x),h=x-w>0;return (w?String(w):'')+(h?(w?' ½':'½'):'');};
+  if(G.includes('muskeln'))p.e+=0.5;return p;}
+const fmtP=x=>{const w=Math.floor(x),h=x-w>0;return (w?String(w):'')+(h?(w?' ½':'½'):'');};
+function renderPortion(){
+  const d=day(todayStr());const mv=d.moves.reduce((a,m)=>a+m.min,0);
+  let lv=d.level||(mv>=45?'sport':'normal');
+  const p=portionFor(lv);const G=focusList().map(g=>g.id);
   const extra=[];
   if((S.profile.life||[]).includes('stillen'))extra.push('Du stillst, darum gönn dir zusätzlich eine kleine Zwischenmahlzeit, zum Beispiel Topfen mit Nüssen. Jetzt bitte nicht einsparen.');
   if(lv==='sport')extra.push('Nach dem Training innerhalb von zwei Stunden eine Handfläche Eiweiß. Mehr Bewegung heißt mehr essen, das ist kein Rückschritt, sondern Treibstoff.');
   if(lv==='koerper')extra.push('Wer körperlich arbeitet, braucht mehr. Iss dich satt, statt am Abend ausgehungert alles nachzuholen.');
-  if(lv==='ruhig')extra.push('An ruhigen Tagen einfach weniger Beilage, Gemüse darf trotzdem so viel sein, wie du magst.');
+  if(lv==='ruhig')extra.push('Im Büro brauchst du weniger Beilage, Gemüse darf trotzdem so viel sein, wie du magst. Steh zwischendurch auf und geh ein paar Schritte.');
   if(G.some(x=>['abnehmen','figur'].includes(x)))extra.push('Beim Abnehmen sparst du nicht beim Eiweiß und nicht beim Gemüse. Der Unterschied kommt von selbst, weil du satt bist und weniger naschst.');
   const row=(i,t,a,b,ex)=>'<tr><td>'+i+'</td><td><b class="big">'+a+'</b> '+t+'<div class="hint">'+b+(ex.length?', zum Beispiel '+ex.join(', '):'')+'</div></td></tr>';
-  $('portion').innerHTML='<div class="card"><h2>Deine Portion heute</h2><p class="hint">Deine Hand ist dein Maß. Wie war dein Tag?</p>'
+  const overview='<h3>So viel pro Mahlzeit, je nach Tag</h3><table class="ptab">'+SG.levels.map(l=>{const q=portionFor(l[0]);return '<tr'+(l[0]===lv?' style="background:#eef3ed"':'')+'><td style="width:auto;font-size:.9rem;text-align:left"><b>'+l[1]+'</b></td><td style="font-size:.95rem">✋ '+fmtP(q.e)+' · ✊ '+fmtP(q.g)+' · 🤲 '+fmtP(q.k)+' · 👍 '+fmtP(q.f)+'</td></tr>';}).join('')+'</table><p class="hint">✋ Handfläche Eiweiß · ✊ Faust Gemüse · 🤲 hohle Hand Beilage · 👍 Daumen Fett.'+(sexOf()==='m'?' Für Männer gerechnet.':' Für Frauen gerechnet, Männer nehmen ungefähr das Doppelte.')+'</p>';
+  $('portion').innerHTML='<div class="card"><h2>Deine Portion heute</h2><p class="hint">Pro Mahlzeit, drei Mal am Tag. Deine Hand ist dein Maß, sie wächst mit dir. Wie war dein Tag?</p>'
    +'<div class="chips" id="lvl">'+SG.levels.map(l=>'<button class="chip'+(l[0]===lv?' on':'')+'" data-l="'+l[0]+'" title="'+l[2]+'">'+l[1]+'</button>').join('')+'</div>'
+   +'<p class="hint" style="margin-top:6px">'+SG.levels.find(l=>l[0]===lv)[2]+'</p>'
    +(mv>=45&&!d.level?'<p class="hint">Du hast heute schon '+mv+' Minuten Bewegung eingetragen.</p>':'')
-   +'<p style="margin:10px 0 4px;font-size:1.05rem"><b>✋ '+fmt(p.e)+' · ✊ '+fmt(p.g)+' · 🤲 '+fmt(p.k)+' · 👍 '+fmt(p.f)+'</b> <span class="hint">pro Mahlzeit</span></p><details><summary>Was heißt das?</summary><table class="ptab" style="margin-top:8px">'
-   +row('✋',p.e>1?'Handflächen Eiweiß':'Handfläche Eiweiß',fmt(p.e),'so groß und dick wie deine Handfläche',exFoods(['Fleisch','Fisch','Milch und Eier'],3))
-   +row('✊',p.g>1?'Fäuste Gemüse':'Faust Gemüse',fmt(p.g)+' oder mehr','darf immer mehr sein',exFoods(['Gemüse'],3))
-   +row('🤲',p.k>1?'hohle Hände Beilage':'hohle Hand Beilage',fmt(p.k),'Getreide, Erdäpfel, Obst',exFoods(['Getreide','Obst'],3))
-   +row('👍','Daumen Fett',fmt(p.f),'Öl, Nüsse, Butter',exFoods(['Fette','Nüsse und Samen'],2))
-   +'</table></details>'+extra.slice(0,1).map(t=>'<div class="box sonne">'+t+'</div>').join('')+'</div>';
+   +'<table class="ptab" style="margin-top:8px">'
+   +row('✋',p.e>1?'Handflächen Eiweiß':'Handfläche Eiweiß',fmtP(p.e),'so groß und dick wie deine Handfläche',exFoods(['Fleisch','Fisch','Milch und Eier'],3))
+   +row('✊',p.g>1?'Fäuste Gemüse':'Faust Gemüse',fmtP(p.g)+' oder mehr','darf immer mehr sein',exFoods(['Gemüse'],3))
+   +row('🤲',p.k>1?'hohle Hände Beilage':'hohle Hand Beilage',fmtP(p.k),'Getreide, Erdäpfel, Obst',exFoods(['Getreide','Obst'],3))
+   +row('👍','Daumen Fett',fmtP(p.f),'Öl, Nüsse, Butter',exFoods(['Fette','Nüsse und Samen'],2))
+   +'</table>'+extra.map(t=>'<div class="box sonne">'+t+'</div>').join('')+overview+'</div>';
   $('lvl').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;day(todayStr()).level=b.dataset.l;save();renderPortion();};
 }
-
 
 // Einkaufsratgeber
 const SECMAP={"Gemüse":"Obst und Gemüse","Obst":"Obst und Gemüse","Fleisch":"Fleisch und Fisch","Fisch":"Fleisch und Fisch","Milch und Eier":"Milch und Eier","Getreide":"Getreide und Beilagen","Hülsenfrüchte":"Getreide und Beilagen","Nüsse und Samen":"Nüsse und Samen","Fette":"Öl und Fett","Getränke":"Tee und Gewürze","Gewürze":"Tee und Gewürze"};
@@ -1941,6 +1973,7 @@ function renderShop(){
 // Nebenbei Fragen, damit der Start kurz bleibt
 function renderNudge(){
   const p=S.profile;const n=$('nudge');
+  if(!p.seenOne){n.innerHTML='<div class="card" style="background:#fdf7e8;border-color:#f1e2bb"><h2>'+SG.oneByOne.titel+'</h2>'+SG.oneByOne.text.slice(1).map(t=>'<p>'+t+'</p>').join('')+'<button class="small" id="oneOk">Verstanden, los geht es</button></div>';$('oneOk').onclick=()=>{p.seenOne=true;save();renderNudge();};return;}
   const first=p.created||todayStr();if(!p.created){p.created=first;save();}
   const age=Math.floor((new Date(todayStr())-new Date(first))/86400000);
   let h='';
